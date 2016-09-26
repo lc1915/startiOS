@@ -93,3 +93,37 @@ if let name = optionalName {
     greeting = "Hello, \(name)"
 }
 ```
+switch-case:
+
+```
+let vegetable = "red pepper"
+switch vegetable {
+    case "celery":
+        let vegetableComment = "Add some raisins and make ants on a log."
+    case "cucumber", "watercress":
+        let vegetableComment = "That would make a good tea sandwich."
+    case let x where x.hasSuffix("pepper"):
+        let vegetableComment = "Is it a spicy \(x)?"
+    default:
+        let vegetableComment = "Everything tastes good in soup."
+}
+```
+You can keep an index in a loop by using a **Range**. Use the **half-open range operator** (`..<`) to make a range of indexes.
+
+```
+var firstForLoop = 0
+for i in 0..<4 {
+    firstForLoop += i
+}
+print(firstForLoop)
+```
+The half-open range operator (..<) doesn’t include the upper number, so this range goes from 0 to 3 for a total of four loop iterations. Use the closed range operator (`...`) to make a range that includes both values.
+
+```
+var secondForLoop = 0
+for _ in 0...4 {
+    secondForLoop += 1
+}
+print(secondForLoop)
+```
+The underscore (`_`) represents a **wildcard**, which you can use when you don’t need to know which iteration of the loop is currently executing.
