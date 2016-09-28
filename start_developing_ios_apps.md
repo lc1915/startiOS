@@ -127,3 +127,5 @@ for _ in 0...4 {
 print(secondForLoop)
 ```
 The underscore (`_`) represents a **wildcard**, which you can use when you don’t need to know which iteration of the loop is currently executing.
+
+###Functions and Methods
