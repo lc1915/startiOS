@@ -129,3 +129,18 @@ print(secondForLoop)
 The underscore (`_`) represents a **wildcard**, which you can use when you don’t need to know which iteration of the loop is currently executing.
 
 ###Functions and Methods
+Use `func` to declare a function. A function declaration can include zero or more parameters, written as `name: Type`. Optionally, a function can have a return type, written after the `->`, which indicates what the function returns as its result.
+
+```
+func greet(name: String, day: String) -> String {
+    return "Hello \(name), today is \(day)."
+}
+```
+When you call a function, you pass in the first argument value without writing its name, and every subsequent value with its name.
+
+```
+greet("Anna", day: "Tuesday")
+greet("Bob", day: "Friday")
+greet("Charlie", day: "a nice day")
+```
+
