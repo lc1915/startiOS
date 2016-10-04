@@ -144,3 +144,87 @@ greet("Bob", day: "Friday")
 greet("Charlie", day: "a nice day")
 ```
 ###Classes and Initializers
+```
+class Shape {
+    var numberOfSides = 0
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+var shape = Shape()
+shape.numberOfSides = 7
+var shapeDescription = shape.simpleDescription()
+```
+This `Shape` class is missing something important: an `initializer`. An initializer is a method that prepares an instance of a class for use, which involves setting an initial value for each property and performing any other setup. Use `init` to create one. This example defines a new class, `NamedShape`, that has an initializer which takes in a name.
+
+```
+class NamedShape {
+    var numberOfSides = 0
+    var name: String
+
+    init(name: String) {
+       self.name = name
+    }
+
+    func simpleDescription() -> String {
+       return "A shape with \(numberOfSides) sides."
+    }
+}
+```
+Notice how `self` is used to distinguish the name property from the name argument to the initializer. Every property needs a value assigned—either in its declaration (as with numberOfSides) or in the initializer (as with name).
+
+When you call an initializer, you include all arguments names along with their values.
+
+```
+let namedShape = NamedShape(name: "my named shape")
+```
+Methods on a subclass that override the superclass’s implementation are marked with `override`—overriding a method by accident, without override, is detected by the compiler as an error. The compiler also detects methods with override that don’t actually override any method in the superclass.
+
+This example defines the `Square` class, a subclass of `NamedShape`.
+
+```
+class Square: NamedShape {
+    var sideLength: Double
+
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+
+    func area() ->  Double {
+        return sideLength * sideLength
+    }
+
+    override func simpleDescription() -> String {
+        return "A square with sides of length \(sideLength)."
+    }
+}
+let testSquare = Square(sideLength: 5.2, name: "my test square")
+testSquare.area()
+testSquare.simpleDescription()
+
+```
+
+Sometimes, initialization of an object needs to fail, such as when the values supplied as the arguments are outside of a certain range, or when data that’s expected to be there is missing. Initializers that may fail to successfully initialize an object are called failable initializers. A failable initializer can return `nil` after initialization. Use `init?` to declare a failable initializer.
+
+```
+class Circle: NamedShape {
+    var radius: Double
+
+    init?(radius: Double, name: String) {
+        self.radius = radius
+        super.init(name: name)
+        numberOfSides = 1
+        if radius <= 0 {
+            return nil
+        }
+    }
+
+    override func simpleDescription() -> String {
+        return "A circle with a radius of \(radius)."
+    }
+}
+let successfulCircle = Circle(radius: 4.2, name: "successful circle")
+let failedCircle = Circle(radius: -7, name: "failed circle")
+```
