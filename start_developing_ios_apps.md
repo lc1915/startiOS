@@ -229,3 +229,32 @@ class Circle: NamedShape {
 let successfulCircle = Circle(radius: 4.2, name: "successful circle")
 let failedCircle = Circle(radius: -7, name: "failed circle")
 ```
+###Enumerations and Structures
+Enumerations define a common type for a group of related values and enable you to work with those values in a type-safe way within your code. Enumerations can have methods associated with them.
+
+Use `enum` to create an enumeration.
+
+```swift
+enum Rank: Int {
+    case Ace = 1
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
+    func simpleDescription() -> String {
+        switch self {
+            case .Ace:
+                return "ace"
+            case .Jack:
+                return "jack"
+            case .Queen:
+                return "queen"
+            case .King:
+                return "king"
+            default:
+                return String(self.rawValue)
+        }
+    }
+}
+let ace = Rank.Ace
+let aceRawValue = ace.rawValue
+```
+//后面一部分没有写（感觉没什么大用
