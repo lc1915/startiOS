@@ -258,3 +258,16 @@ let ace = Rank.Ace
 let aceRawValue = ace.rawValue
 ```
 //后面一部分没有写（感觉没什么大用
+###Protocols
+
+A `protocol` defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol doesn’t actually provide an implementation for any of these requirements—it only describes what an implementation will look like. The protocol can then be adopted by a class, structure, or enumeration to provide an actual implementation of those requirements. Any type that satisfies the requirements of a protocol is said to conform to that protocol.
+
+```swift
+protocol ExampleProtocol {
+     var simpleDescription: String { get }
+     func adjust()
+}
+```
+> Note: The `{ get }` following the simpleDescription property indicates that it is read-only, meaning that the value of the property can be viewed, but never changed.
+
+// 关于protocols以后如果要用到的时候再学
