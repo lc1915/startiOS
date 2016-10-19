@@ -271,3 +271,18 @@ protocol ExampleProtocol {
 > Note: The `{ get }` following the simpleDescription property indicates that it is read-only, meaning that the value of the property can be viewed, but never changed.
 
 // 关于protocols以后如果要用到的时候再学
+
+###Swift and Cocoa Touch
+
+> `alt`+鼠标左键点击：看到变量的基本属性，类的属性，以及一些方法
+
+When writing iOS apps, you’ll be using more than the `Swift standard library`. One of the most frequently used frameworks in iOS app development is `UIKit`. `UIKit` contains useful classes for working with the UI (user interface) layer of your app.
+
+```swift
+import UIKit
+
+let redSquare = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+redSquare.backgroundColor = UIColor.red
+```
+
+//finally! finish!
