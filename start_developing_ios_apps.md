@@ -48,11 +48,17 @@ Use optionals to work with values that might be missing. An **optional value** e
 ```swift
 let optionalInt: Int? = 9
 ```
+Swift语言使用var定义变量，但和别的语言不同，**Swift里不会自动给变量赋初始值**，也就是说变量不会有默认值，所以要求使用变量之前必须要对其初始化。
+
+`Optional`其实是个`enum`，里面有`None`和`Some`两种类型。其实所谓的nil就是`Optional.None`, 非nil就是`Optional.Some`, 然后会通过`Some(T)`包装（wrap）原始值，这也是为什么在使用Optional的时候要拆包（从enum里取出来原始值）的原因, 也是PlayGround会把Optional值显示为类似`{Some "hello world"}`的原因。
+
+声明为Optional只需要在类型后面紧跟一个`?`即可。
+
 To get the underlying type from an optional, you unwrap it. You’ll learn unwrapping optionals later, but the most straightforward way to do it involves the *force unwrap operator* (!). Only use the unwrap operator if you’re sure the underlying value isn’t nil.
 
-~~~swift
+```swift
 let actualInt: Int = optionalInt!
-~~~
+```
 
 Optionals are especially useful for attempted type conversions.
 
